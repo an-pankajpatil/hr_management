@@ -1,0 +1,105 @@
+<app-header></app-header>
+<ion-grid *ngIf="punchEmployeeResponse">
+  <ion-row class="ion-margin-horizontal">
+    <ion-col class="status" size="12">
+      <h1 *ngIf="
+          punchEmployeeResponse.data.updatedEmployee.punch_status == 'punch-in';
+          else punchout
+        ">
+        Punched IN
+      </h1>
+      <ng-template #punchout>
+        <h1>Punched Out</h1>
+      </ng-template>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center ion-margin-top">
+    <ion-col sizeMd="2" sizeSm="12" sizeXs="12" class="ion-padding-start">
+      <ion-avatar>
+        <img
+          src="{{ avatarURL }}{{
+            punchEmployeeResponse.data.updatedEmployee.emp_avatar
+          }}"
+        />
+      </ion-avatar>
+    </ion-col>
+    <ion-col class="ion-padding-horizontal">
+      <ion-text color="yale-blue" class="ion-text-nowrap ion-text-capitalize">
+        <h4>
+          {{ greetMessege }},{{
+          punchEmployeeResponse.data.updatedEmployee.emp_firstname
+          }}
+        </h4>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-margin ion-padding-start">
+    <ion-col sizeMd="3" sizeXs="6" class="ion-text-unwrap">
+      <ion-note>Date</ion-note>
+      <h1>
+        {{
+        punchEmployeeResponse.data.punchRecord.createdAt | date: "dd-MM-yyyy"
+        }}
+      </h1>
+    </ion-col>
+    <ion-col sizeMd="3" sizeXs="6" class="ion-text-nowrap">
+      <ion-note>Punched In</ion-note>
+      <h1 [ngClass]="{
+          late: checkLateMark(
+            punchEmployeeResponse.data.punchRecord.punch_in_time
+          )
+        }">
+        <ion-icon *ngIf="
+            checkLateMark(punchEmployeeResponse.data.punchRecord.punch_in_time)
+          " color="danger" slot="start" src="/assets/icon/late-mark.svg"></ion-icon>
+        {{
+        punchEmployeeResponse.data.punchRecord.punch_in_time
+        | date: "shortTime"
+        }}
+      </h1>
+    </ion-col>
+    <ion-col *ngIf="
+        punchEmployeeResponse.data.updatedEmployee.punch_status == 'punch-out'
+      " sizeMd="3" sizeXs="6" class="ion-text-nowrap">
+      <ion-note>Punched Out</ion-note>
+      <h1>
+        {{
+        punchEmployeeResponse.data.punchRecord.punch_out_time
+        | date: "shortTime"
+        }}
+      </h1>
+    </ion-col>
+    <ion-col *ngIf="
+        punchEmployeeResponse.data.updatedEmployee.punch_status == 'punch-out'
+      " sizeMd="3" sizeXs="6" class="ion-text-nowrap">
+      <ion-note>Working Hours</ion-note>
+      <h1>
+        {{
+        workingHours(
+        punchEmployeeResponse.data.punchRecord.punch_in_time,
+        punchEmployeeResponse.data.punchRecord.punch_out_time
+        )
+        }}
+      </h1>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center ion-margin">
+    <ion-col *ngIf="
+        punchEmployeeResponse.data.updatedEmployee.punch_status == 'punch-in'
+      " offsetSm="1" sizeSm="10" sizeMd="6">
+      <ion-label>
+        <ion-note color="danger"> Note :</ion-note>
+        <ion-text color="dark"> Important Information here </ion-text>
+      </ion-label>
+    </ion-col>
+    <ion-col sizeMd="3" size="12" sizeSm="6" offsetSm="3">
+      <ion-button (click)="closeModal()" color="dark-blue">
+        Exit
+        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

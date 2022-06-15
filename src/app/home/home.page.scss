@@ -1,0 +1,45 @@
+@import "/src/global.scss";
+
+ion-header {
+  display: none;
+}
+.flex-class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scan {
+  height: 60vh;
+  background: url(../../assets/images/scanner.gif) ;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+
+
+}
+
+p {
+  color: var(--ion-color-dark);
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.logo {
+  margin: 1.5rem 0;
+
+  img {
+    width: 85%;
+  }
+}
+
+@include respond(mobile) {
+  ion-header {
+    display: block;
+  }
+
+  .scan {
+    height: 40vh;
+    background-size: 90%;
+  }
+}

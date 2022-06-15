@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<ion-content
+  [ngClass]="{'morning':partOfDay === Greet.Morning, 'afternoon':partOfDay === Greet.Afternoon, 'evening':partOfDay === Greet.Evening}">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ">
+      <ion-col size="12" sizeSm="8" class="ion-text-wrap" >
+        <p class="quote" *ngIf="randomQuote">{{randomQuote}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="weatherData">
+      <ion-col sizeSm="12" size="12" sizeMd="6" class="data ion-text-center">
+        <div class="weather">
+          <img
+            src="{{ weatherData.weather[0].icon}}.png"
+            class="weather-icon"
+          />
+          <h1>{{weatherData.main.temp}}&#176;</h1>
+          <p>{{ weatherData.weather[0].description }}</p>
+        </div>
+        <div>
+          <ion-text>{{ weatherData.name }},Maharashtra</ion-text>
+        </div>
+      </ion-col>
+      <ion-col class="buttons" sizeSm="12" sizeMd="6" size="12">
+        <ion-button [routerLink]="['/home']" expand="block" fill="solid" color="success">
+          Punch In
+        </ion-button>
+        <ion-button [routerLink]="['/home']" expand="block" fill="outline" color="success">
+          Punch Out
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

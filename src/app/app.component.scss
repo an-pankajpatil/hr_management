@@ -1,0 +1,46 @@
+@import "/src/global.scss";
+
+ion-content {
+  ion-row {
+    .menu-content {
+      height: 100vh;
+      background: var(--ion-color-dark-red);
+      color: var(--ion-color-light);
+
+      .weather {
+        background-color: var(--ion-color-alpha-white);
+        margin-top: 10%;
+      }
+
+      .clock {
+        margin: 17.5% auto;
+      }
+
+      .date {
+        font-size: 2rem;
+      }
+
+      .time {
+        font-size: 5rem;
+      }
+
+      .meridiem {
+        font-size: 1.8rem;
+        padding-top: 2.3rem;
+      }
+
+      ion-button {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: 0;
+        height: 5rem;
+      }
+      ion-icon{
+        padding-top: 0.2rem;
+        font-size: 1.8rem;
+      }
+    }
+  }
+}

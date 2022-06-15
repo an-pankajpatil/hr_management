@@ -1,0 +1,16 @@
+<div *ngIf="weatherData">
+  <ion-row class="ion-padding">
+    <ion-col size="2">
+      <img src="{{ weatherData.weather[0].icon}}.png" class="weather-icon" />
+    </ion-col>
+    <ion-col size="3" class="ion-text-center">
+      <ion-text class="temperature">{{ weatherData.main.temp }}<sup>°</sup></ion-text>
+    </ion-col>
+    <ion-col size="7">
+      <ion-text>
+        <p class="description">{{ weatherData.weather[0].description }}</p>
+        <p class="city">{{ weatherData.name }}, Maharashtra</p>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+</div>

@@ -1,0 +1,33 @@
+ion-row {
+  margin: 0;
+  padding: 0;
+  color: var(--ion-color-light);
+
+  .weather-icon {
+    width: 80%;
+    height: 70%;
+  }
+
+  ion-col {
+    .temperature {
+      font-size: 2.6rem;
+    }
+
+    sup {
+      font-size: 2rem;
+    }
+  }
+
+  ion-col {
+    .description {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .city {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<app-header></app-header>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="ion-text-center" size="12">
+                <ion-item color="dark-red" lines="none" class="ion-margin-horizontal">
+                    <h1>Punch In/Out</h1>
+                </ion-item>
+                <ion-icon color="warning" class="warn" name="warning-outline"></ion-icon>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" sizeSm="8" offsetSm="2" sizeMd="6" offsetMd="3">
+                <p> Your card is not accepted.</p>
+            </ion-col>
+            <ion-col size="12" sizeSm="12" sizeMd="10" offsetMd="1">
+                <p> Please Contact HR on Below number or Try again.</p>
+            </ion-col>
+            <ion-col size="12" sizeSm="6" offsetSm="3" sizeMd="6" offsetMd="3">
+                <p>Thank You!</p>
+            </ion-col>
+            <ion-col class="contact" size="12" sizeSm="6" offsetSm="3" sizeMd="6" offsetMd="3">
+                <p>9898989898</p>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-margin-horizontal">
+            <ion-col size="12" pushMd="7" sizeSm="12" sizeMd="4">
+                <ion-button [routerLink]="['/home']"  color="dark-blue" expand="block" fill="solid">
+                    Exit
+                    <ion-icon slot="end" name="arrow-forward"></ion-icon>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

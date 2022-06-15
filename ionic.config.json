@@ -1,0 +1,7 @@
+{
+  "name": "nogit",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,110 @@
+@import "/src/global.scss";
+
+.morning {
+  --background: url(/assets/images/morning.jpg) no-repeat center center/cover;
+}
+
+.afternoon {
+  --background: url(/assets/images/afternoon.jpg) no-repeat center center/cover;
+}
+
+.evening {
+  --background: url(/assets/images/evening.jpg) no-repeat center center/cover;
+}
+
+ion-content {
+  --background:url('/assets/images/bg1.jpg') no-repeat center center/cover;
+  ion-row {
+    margin: 0;
+
+    ion-icon,
+    h1 {
+      font-size: 5.3rem;
+      margin: 0;
+      padding-left: 12px;
+    }
+
+    p {
+      font-size: 2rem;
+      padding-top: 2.5rem;
+      margin: 0;
+      font-weight: bolder;
+    }
+
+    .quote {
+      font-size: 3rem;
+      margin-bottom: 5rem;
+      text-align: center;
+      color: var(--ion-color-light);
+    }
+
+    .quote::before {
+      content: " | ";
+      color: var(--ion-color-danger);
+    }
+
+    .data {
+      font-size: 2rem;
+      color: var(--ion-color-light);
+
+      .weather {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .weather-icon {
+        width: 15%;
+      }
+    }
+
+    ion-text {
+      margin-left: 63px;
+      font-size: 2rem;
+      font-weight: bolder;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    ion-button {
+      width: 18rem;
+      height: 5rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: none;
+      margin: 0.5rem;
+    }
+  }
+}
+
+@include respond(tablet) {
+  .buttons {
+    border-left: 3px solid var(--ion-color-light);
+  }
+
+  .data {
+    border-right: 3px solid var(--ion-color-light);
+  }
+}
+
+@include respond(mobile) {
+  .buttons {
+    border: none;
+  }
+
+  .data {
+    border: none;
+  }
+
+  ion-text {
+    margin: 0 auto;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    white-space: nowrap;
+  }
+}
